@@ -1,4 +1,5 @@
 #include<iostream>
+#include<locale.h>
 using namespace std;
 
 double square(double a)
@@ -82,15 +83,28 @@ complex complex::div(complex B)
 
 void main()
 {
+	setlocale(LC_ALL, "Russian");
 	complex A;
-	double temp;
-	cout << "Enter real part:" << endl;
-	cin >> temp;
-	A.setReal(temp);
-	cout << "Enter imaginary part:" << endl;
-	cin >> temp;
-	A.setImaginary(temp);
-	cout << "Complex number:" << endl;
+	double a, b;
+	cout << "Действительная и мнимая части комплексного числа А:" << endl;
+	cin >> a >> b;
+	A.setReal(a);
+	A.setImaginary(b);
+	cout << "Комплексное число А:" << endl;
 	A.show();
+	complex B;
+	cout << "Действительная и мнимая части комплексного числа B:" << endl;
+	cin >> a >> b;
+	B.setReal(a);
+	B.setImaginary(b);
+	complex C;
+	C = A.multiply(B);
+	cout << "A*B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	C = A.sum(B);
+	cout << "A+B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	C = A.sub(B);
+	cout << "A-B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	C = A.div(B);
+	cout << "A/B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
 	system("pause");
 }
