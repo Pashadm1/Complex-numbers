@@ -11,6 +11,7 @@ class complex
 	double real;
 	double imaginary;
 public:
+	complex() { real = 0; imaginary = 0; }
 	double getReal();
 	double getImaginary();
 	void setReal(double value);
@@ -81,5 +82,15 @@ complex complex::div(complex B)
 
 void main()
 {
-
+	complex A;
+	double temp;
+	cout << "Enter real part:" << endl;
+	cin >> temp;
+	A.setReal(temp);
+	cout << "Enter imaginary part:" << endl;
+	cin >> temp;
+	A.setImaginary(temp);
+	cout << "Complex number:" << endl;
+	A.show();
+	system("pause");
 }
