@@ -2,14 +2,10 @@
 
 void main()
 {
-	complex A;
-	A.setReal(3);
-	A.setImaginary(6);
+	complex A(3,4);
 	cout << "A=";
 	A.show();
-	complex B;
-	B.setReal(2);
-	B.setImaginary(4);
+	complex B(2,4);
 	cout << "B=";
 	B.show();
 	complex *C = new complex(A.multiply(B));

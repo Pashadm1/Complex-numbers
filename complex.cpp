@@ -12,6 +12,13 @@ complex::complex()
 	cout << "Constructor\n";
 }
 
+complex::complex(double a, double b)
+{
+	real = a;
+	imaginary = b;
+	cout << "Constructor\n";
+}
+
 complex::complex(const complex &B)
 {
 	real = B.getReal();

@@ -8,6 +8,7 @@ class complex
 	double imaginary;
 public:
 	complex();
+	complex(double a, double b);
 	complex(const complex &B);
 	~complex();
 	double getReal() const;
