@@ -23,5 +23,6 @@ void main()
 	C = new complex(A.div(B));
 	cout << "A/B=";
 	C->show();
+	delete C;
 	system("pause");
 }

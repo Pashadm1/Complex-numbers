@@ -53,7 +53,13 @@ void complex::setImaginary(double value)
 
 void complex::show() const
 {
-	cout << real << '+' << imaginary << 'i' << endl;
+	if (real)
+		cout << real;
+	if (real&&imaginary)
+		cout << '+';
+	if (imaginary)
+		cout << imaginary << 'i';
+	cout << endl;
 }
 
 complex complex::multiply(const complex &B) const
