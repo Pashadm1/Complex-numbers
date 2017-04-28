@@ -9,6 +9,19 @@ complex::complex()
 {
 	real = 0;
 	imaginary = 0;
+	cout << "Constructor\n";
+}
+
+complex::complex(const complex &B)
+{
+	real = B.getReal();
+	imaginary = B.getImaginary();
+	cout << "Constructor\n";
+}
+
+complex::~complex()
+{
+	cout << "Destructor\n";
 }
 
 double complex::getReal() const
