@@ -1,5 +1,4 @@
 #include<iostream>
-#include<locale.h>
 using namespace std;
 
 double square(double a)
@@ -12,24 +11,30 @@ class complex
 	double real;
 	double imaginary;
 public:
-	complex() { real = 0; imaginary = 0; }
-	double getReal();
-	double getImaginary();
+	complex();
+	double getReal() const;
+	double getImaginary() const;
 	void setReal(double value);
 	void setImaginary(double value);
-	void show();
-	complex multiply(complex B);
-	complex sum(complex B);
-	complex sub(complex B);
-	complex div(complex B);
+	void show() const;
+	complex multiply(const complex &B) const;
+	complex sum(const complex &B) const;
+	complex sub(const complex &B) const;
+	complex div(const complex &B) const;
 };
 
-double complex::getReal()
+complex::complex()
+{
+	real = 0;
+	imaginary = 0;
+}
+
+double complex::getReal() const
 {
 	return real;
 }
 
-double complex::getImaginary()
+double complex::getImaginary() const
 {
 	return imaginary;
 }
@@ -44,12 +49,12 @@ void complex::setImaginary(double value)
 	imaginary = value;
 }
 
-void complex::show()
+void complex::show() const
 {
 	cout << real << '+' << imaginary << 'i' << endl;
 }
 
-complex complex::multiply(complex B)
+complex complex::multiply(const complex &B) const
 {
 	complex C;
 	C.setReal(real*B.getReal() - imaginary*B.getImaginary());
@@ -57,7 +62,7 @@ complex complex::multiply(complex B)
 	return C;
 }
 
-complex complex::sum(complex B)
+complex complex::sum(const complex &B) const
 {
 	complex C;
 	C.setReal(real + B.getReal());
@@ -65,7 +70,7 @@ complex complex::sum(complex B)
 	return C;
 }
 
-complex complex::sub(complex B)
+complex complex::sub(const complex &B) const
 {
 	complex C;
 	C.setReal(real - B.getReal());
@@ -73,7 +78,7 @@ complex complex::sub(complex B)
 	return C;
 }
 
-complex complex::div(complex B)
+complex complex::div(const complex &B) const
 {
 	complex C;
 	C.setReal((real*B.getReal() + imaginary*B.getImaginary()) / (square(B.getReal()) + square(B.getImaginary())));
@@ -83,28 +88,28 @@ complex complex::div(complex B)
 
 void main()
 {
-	setlocale(LC_ALL, "Russian");
 	complex A;
-	double a, b;
-	cout << "Действительная и мнимая части комплексного числа А:" << endl;
-	cin >> a >> b;
-	A.setReal(a);
-	A.setImaginary(b);
-	cout << "Комплексное число А:" << endl;
+	A.setReal(2);
+	A.setImaginary(4);
+	cout << "A=";
 	A.show();
 	complex B;
-	cout << "Действительная и мнимая части комплексного числа B:" << endl;
-	cin >> a >> b;
-	B.setReal(a);
-	B.setImaginary(b);
+	B.setReal(3);
+	B.setImaginary(6);
+	cout << "B=";
+	B.show();
 	complex C;
 	C = A.multiply(B);
-	cout << "A*B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	cout << "A*B=";
+	C.show();
 	C = A.sum(B);
-	cout << "A+B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	cout << "A+B=";
+	C.show();
 	C = A.sub(B);
-	cout << "A-B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	cout << "A-B=";
+	C.show();
 	C = A.div(B);
-	cout << "A/B=" << C.getReal() << '+' << C.getImaginary() << 'i' << endl;
+	cout << "A/B=";
+	C.show();
 	system("pause");
 }
