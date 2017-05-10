@@ -56,10 +56,15 @@ void complex::show() const
 	if (real)
 		cout << real;
 	if (real&&imaginary)
-		cout << '+';
+		if (imaginary >= 0)
+			cout << '+';
+		else
+		{
+			cout << '-' << -imaginary << 'i';
+			return;
+		}
 	if (imaginary)
 		cout << imaginary << 'i';
-	cout << endl;
 }
 
 complex complex::multiply(const complex &B) const
