@@ -28,7 +28,7 @@ void main()
 	}
 	else
 	{
-		cout << "A!=B" << endl;
+		cout << "A=/=B" << endl;
 	}
 	complex *C = new complex(A*B);
 	cout << "A*B=" << *C << endl;
