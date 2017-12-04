@@ -22,6 +22,14 @@ void main()
 	}
 	cout << "A=" << A << endl;
 	cout << "B=" << B << endl;
+	if (A == B)
+	{
+		cout << "A=B" << endl;
+	}
+	else
+	{
+		cout << "A!=B" << endl;
+	}
 	complex *C = new complex(A*B);
 	cout << "A*B=" << *C << endl;
 	delete C;
